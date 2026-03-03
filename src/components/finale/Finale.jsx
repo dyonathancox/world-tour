@@ -50,7 +50,7 @@ export default function Finale({ selectedTracks = [], suggestion = '' }) {
     const encodedMessage = encodeURIComponent(message);
 
     // COLOQUE SEU NÚMERO AQUI (DDI + DDD + Número. Ex: 5511988887777)
-    const yourPhoneNumber = '5511999999999';
+    const yourPhoneNumber = '5515998139184';
 
     window.open(
       `https://wa.me/${yourPhoneNumber}?text=${encodedMessage}`,
