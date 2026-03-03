@@ -1,0 +1,48 @@
+:root {
+  /* Nova Paleta Army Colorido */
+  --bts-purple: #8b5cf6;
+  --bts-purple-light: #a78bfa;
+  --bts-purple-glow: rgba(139, 92, 246, 0.4);
+  --text-dark: #1e1b4b; /* Azul/Roxo muito escuro para os textos */
+  --text-muted: #6b7280;
+  --bts-pink: #ec4899;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+body {
+  /* A MÁGICA AQUI: O linear-gradient aplica uma camada branca/lavanda translúcida por cima da foto! */
+  background-image:
+    linear-gradient(rgba(245, 243, 255, 0.85), rgba(245, 243, 255, 0.85)),
+    url('https://w0.peakpx.com/wallpaper/746/211/HD-wallpaper-bts-group-purple-vibe-bts-love-k-pop-love-yourself-thumbnail.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* A foto não rola junto com a página */
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  /* Estas 4 linhas abaixo GARANTEM que o ingresso/setlist não fiquem colados na esquerda */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}

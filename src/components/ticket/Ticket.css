@@ -1,0 +1,210 @@
+.ticket-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ticket-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  cursor: pointer;
+  position: relative;
+  /* Centralização total */
+  margin: 0 auto;
+}
+
+.ticket-wrapper:active {
+  transform: scale(0.98);
+}
+
+.ticket-half {
+  /* Fundo degradê vibrante e suave */
+  background: linear-gradient(135deg, #a78bfa, #f472b6, #fbbf24);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  /* Sombra e borda suaves */
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Metade Superior --- */
+.ticket-main {
+  padding: 1.5rem 1.2rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-left: 1px solid rgba(139, 92, 246, 0.3);
+  border-right: 1px solid rgba(139, 92, 246, 0.3);
+  border-top: 1px solid rgba(139, 92, 246, 0.3);
+  border-bottom: 2px dashed rgba(139, 92, 246, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+/* Furos laterais com a cor de fundo clara */
+.cutout {
+  position: absolute;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-dark); /* Cor de fundo lavanda claro */
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.cutout.left {
+  left: -10px;
+}
+.cutout.right {
+  right: -10px;
+}
+
+/* --- Metade Inferior --- */
+.ticket-stub {
+  padding: 1.2rem;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-left: 1px solid rgba(139, 92, 246, 0.3);
+  border-right: 1px solid rgba(139, 92, 246, 0.3);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+}
+
+/* --- Cabeçalho --- */
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tour-subtitle {
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.tour-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  line-height: 1.2;
+  word-break: break-word;
+}
+/* Tag VIP escura para contrastar */
+.vip-badge {
+  background: var(--text-light);
+  color: var(--bg-dark);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* --- Corpo --- */
+.ticket-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.info-row label {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-light);
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+.info-row h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+.info-row.split {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.info-item {
+  flex: 1;
+}
+.info-item p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* --- Canhoto e Código de Barras --- */
+.barcode-box {
+  width: 100%;
+  height: 35px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--text-muted) 0,
+    var(--text-muted) 2px,
+    transparent 2px,
+    transparent 5px,
+    var(--text-muted) 5px,
+    var(--text-muted) 7px,
+    transparent 7px,
+    transparent 12px,
+    var(--text-muted) 12px,
+    var(--text-muted) 15px,
+    transparent 15px,
+    transparent 18px
+  );
+  opacity: 0.6;
+  border-radius: 2px;
+}
+.stub-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ticket-serial {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+.admit-text {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--bts-purple);
+  letter-spacing: 2px;
+}
+
+.click-hint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1rem;
+}

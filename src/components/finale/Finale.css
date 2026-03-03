@@ -1,0 +1,213 @@
+.finale-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* --- VISUAL DA CAIXA DE PERGUNTA CLARA --- */
+.question-box {
+  background: #ffffff; /* Fundo branco */
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centralização total */
+  margin: 0 auto;
+}
+
+.icon-flight {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.2));
+}
+
+.question-box h2 {
+  font-size: 1.6rem;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.question-box p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+/* --- CORREÇÃO DOS BOTÕES PARA MOBILE --- */
+.buttons-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  min-height: 140px;
+}
+
+.btn-yes {
+  background: var(--bts-purple-light); /* Roxo claro */
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--bts-purple-glow);
+  animation: pulse 2s infinite;
+  transition: transform 0.2s ease;
+  z-index: 10;
+  width: 100%;
+}
+
+.btn-yes:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+.btn-no {
+  background: rgba(139, 92, 246, 0.05);
+  color: var(--text-muted);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  padding: 0.8rem 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: not-allowed;
+  position: relative;
+  z-index: 5;
+  backdrop-filter: blur(5px);
+  width: 80%;
+}
+
+/* --- MENSAGEM DE SUCESSO CLARA --- */
+.success-message {
+  background: #ffffff; /* Fundo branco */
+  border: 1px solid var(--bts-purple);
+  padding: 3rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 40px var(--bts-purple-glow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  width: 100%;
+  max-width: 360px;
+  position: relative;
+  overflow: hidden;
+  /* Centralização total */
+  margin: 0 auto;
+}
+
+.success-message h1 {
+  font-size: 2.5rem;
+  color: var(--bts-purple); /* Usando o roxo clássico para o título */
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.success-message > p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.heart-pulse {
+  font-size: 4rem;
+  animation: heartbeat 1.5s infinite;
+  margin-top: 1rem;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.2);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* --- ESTILO DO EASTER EGG COMBO ADAPTADO --- */
+.special-combo {
+  background: rgba(139, 92, 246, 0.05); /* Fundo roxo suave */
+  border: 1px dashed var(--bts-purple-light);
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.03);
+}
+
+.combo-badge {
+  font-size: 0.7rem;
+  color: var(--bts-pink); /* Título em rosa para destacar */
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.special-combo h3 {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.combo-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.btn-final-whatsapp {
+  margin-top: 2rem;
+  background: #25d366; /* Verde oficial do WhatsApp */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-final-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+}

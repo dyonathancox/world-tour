@@ -1,0 +1,351 @@
+.setlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100vw;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Mantém o corte limpo nas laterais da tela */
+  position: relative;
+}
+
+.setlist-header {
+  text-align: center;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.now-playing {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--bts-pink); /* Usando a cor rosa */
+  text-transform: uppercase;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.now-playing::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.setlist-header h2 {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.setlist-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* O Carrossel com Scroll Corrigido */
+.carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  gap: 1.2rem;
+
+  /* AJUSTE AQUI: Aumentamos o padding lateral para que o primeiro e 
+     o último card tenham espaço para "respirar" e não fiquem colados na borda */
+  padding: 1.5rem 2.5rem 3rem 2.5rem;
+
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.track-card {
+  /* AJUSTE AQUI: Mudamos para 'center' para que o card sempre 
+     tente ficar no meio da tela ao deslizar */
+  scroll-snap-align: center;
+
+  flex: 0 0 85%; /* Aumentamos um pouco a largura relativa no mobile */
+  max-width: 300px; /* Limite de largura para telas maiores */
+
+  background: #ffffff;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.track-card.selected {
+  border-color: var(--bts-purple);
+  box-shadow: 0 15px 40px var(--bts-purple-glow);
+  transform: translateY(-8px);
+}
+
+.track-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.track-number {
+  font-family: monospace;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+/* Botão de Like adaptado para paleta clara */
+.like-btn {
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.like-btn.liked {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: var(--bts-purple);
+  animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.track-content {
+  z-index: 2;
+  margin-top: 1rem;
+  flex-grow: 1;
+}
+
+.track-content h3 {
+  font-size: 1.3rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.track-content p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* --- Interface do Player de Música Adaptada --- */
+.player-ui {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  z-index: 2;
+}
+
+.progress-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 4px;
+  background: rgba(
+    139,
+    92,
+    246,
+    0.1
+  ); /* Roxo translúcido para o fundo da barra */
+  border-radius: 4px;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--bts-purple);
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px var(--bts-purple-glow);
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--bts-purple-light); /* Bolinha roxa clara */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.time-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.track-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genre-tag {
+  font-size: 0.65rem;
+  background: rgba(139, 92, 246, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Equalizador animado */
+.equalizer {
+  display: flex;
+  gap: 3px;
+  height: 15px;
+  align-items: flex-end;
+}
+
+.equalizer .bar {
+  width: 3px;
+  background-color: var(--bts-purple); /* Usando a cor roxa clássica */
+  border-radius: 3px 3px 0 0;
+  animation: equalize 1s infinite ease-in-out;
+}
+
+.equalizer .bar:nth-child(1) {
+  animation-duration: 0.9s;
+}
+.equalizer .bar:nth-child(2) {
+  animation-duration: 1.1s;
+  animation-delay: 0.2s;
+}
+.equalizer .bar:nth-child(3) {
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+}
+.equalizer .bar:nth-child(4) {
+  animation-duration: 1s;
+  animation-delay: 0.1s;
+}
+
+@keyframes equalize {
+  0%,
+  100% {
+    height: 4px;
+  }
+  50% {
+    height: 15px;
+  }
+}
+
+.card-glow {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: var(--bts-purple-glow);
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.track-card.selected .card-glow {
+  opacity: 0.6;
+}
+
+/* Botão de Avançar com Estado Desabilitado Adaptado */
+.action-area {
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.next-stage-btn {
+  width: 100%;
+  background: var(--bts-purple-light); /* Roxo claro */
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 25px var(--bts-purple-glow);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.next-stage-btn:not(.disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+}
+
+.next-stage-btn.disabled {
+  background: rgba(139, 92, 246, 0.05);
+  color: var(--text-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}

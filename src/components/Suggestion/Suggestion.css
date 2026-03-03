@@ -1,0 +1,104 @@
+/* src/components/suggestion/Suggestion.css */
+.suggestion-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.suggestion-box {
+  background: #ffffff;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.icon-chat {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: float-chat 3s infinite ease-in-out;
+}
+
+@keyframes float-chat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.suggestion-box h2 {
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-box p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.suggestion-input {
+  width: 100%;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  resize: none;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.suggestion-input:focus {
+  outline: none;
+  border-color: var(--bts-purple);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  background: #fff;
+}
+
+.suggestion-input::placeholder {
+  color: #9ca3af;
+}
+
+.btn-whatsapp {
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--bts-purple-light),
+    var(--bts-purple)
+  );
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(139, 92, 246, 0.4);
+}
